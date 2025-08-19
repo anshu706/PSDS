@@ -1,3 +1,6 @@
+// Time Complexity: O(log n)
+// Space Complexity: O(1)
+// binary search is faster than linear search
 #include <stdio.h>
 #include <stdlib.h>
 
