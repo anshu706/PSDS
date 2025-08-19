@@ -21,10 +21,6 @@ int binarysearch(int arr[], int size, int target)
         {
             high = mid - 1;
         }
-        else
-        {
-            printf("Invalid Input\n");
-        }
     }
     printf("Target %d is not found\n", target);
     return -1;
@@ -33,9 +29,7 @@ int binarysearch(int arr[], int size, int target)
 int main()
 {
     int arr[] = {3, 5, 9, 12, 14, 18, 19, 23, 27};
-    int target;
-    printf("Enter target: ");
-    scanf("%d\n", target);
+    int target = 23;
     int size = sizeof(arr) / sizeof(arr[0]);
     binarysearch(arr, size, target);
 }
