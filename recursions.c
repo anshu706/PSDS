@@ -1,20 +1,45 @@
-#include <stdio.h>
+// // // Print numbers from 1 to n using recursion
 
-void f(int count, int n)
-{
-    if (count > n)
-    {
-        return;
-    }
+// // #include <stdio.h>
 
-    printf("%d", count);
-    count++;
-    f(count, n);
-}
+// // void f(int count, int n)
+// // {
+// //     if (count > n)
+// //     {
+// //         return;
+// //     }
 
-int main()
-{
-    int n;
-    scanf("%d", &n);
-    f(1, n);
-}
+// //     printf("%d\n", count);
+// //     f(count + 1, n);
+// // }
+
+// // int main()
+// // {
+// //     int n;
+// //     printf("Enter n:");
+// //     scanf("%d\n", &n);
+// //     f(1, n);
+// // }
+
+// // Print numbers from n to 1 using recursion
+
+// #include <stdio.h>
+
+// void f(int count, int n)
+// {
+//     if (count < 1)
+//     {
+//         return;
+//     }
+
+//     printf("%d\n", count);
+//     f(count - 1, n);
+// }
+
+// int main()
+// {
+//     int n;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     f(n, 1);
+// }
