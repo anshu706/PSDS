@@ -35,5 +35,5 @@ int main()
 {
     int n = 5;
     int x = factorial(n);
-    printf("Factorial of %d\n", n, x);
+    printf("Factorial of %d is %d\n", n, x);
 }
