@@ -15,7 +15,7 @@ struct binarytreeNode *create(int value)
     temp->left = NULL;
     temp->right = NULL;
     return temp;
-}
+};
 
 struct binarytreeNode *insert(struct binarytreeNode *root, int value)
 {
@@ -33,7 +33,7 @@ struct binarytreeNode *insert(struct binarytreeNode *root, int value)
         root->right = insert(root->right, value);
     }
     return root;
-}
+};
 
 void preorder(struct binarytreeNode *root)
 {
