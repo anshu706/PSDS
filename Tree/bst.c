@@ -1,30 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct binarytreeNode
+struct binarytreenode
 {
     int key;
-    struct binarytreeNode *left;
-    struct binarytreeNode *right;
+    struct binarytreenode *left;
+    struct binarytreenode *right;
 };
 
-struct binarytreeNode *create(int value)
+struct binarytreenode *create(int value)
 {
-    struct binarytreeNode *temp = (struct binarytreeNode *)malloc(sizeof(struct binarytreeNode));
+    struct binarytreenode *temp = (struct binarytreenode *)malloc(sizeof(struct binarytreenode));
     temp->key = value;
     temp->left = NULL;
     temp->right = NULL;
     return temp;
-};
-
-struct binarytreeNode *insert(struct binarytreeNode *root, int value)
+}
+struct binarytreenode *insert(struct binarytreenode *root, int value)
 {
     if (root == NULL)
     {
-        printf("value %d is inserted\n", value);
+        printf("valid %d is inserted\n", value);
         return create(value);
     }
-    else if (value < root->key)
+    else if (root->key > value)
     {
         root->left = insert(root->left, value);
     }
@@ -33,57 +32,63 @@ struct binarytreeNode *insert(struct binarytreeNode *root, int value)
         root->right = insert(root->right, value);
     }
     return root;
-};
+}
 
-void preorder(struct binarytreeNode *root)
+void preorder(struct binarytreenode *root)
 {
     if (root == NULL)
     {
         return;
     }
-    printf("%d ", root->key);
-    preorder(root->left);
-    preorder(root->right);
+    else
+    {
+        printf("%d ", root->key);
+        preorder(root->left);
+        preorder(root->right);
+    }
 }
 
-void inorder(struct binarytreeNode *root)
+void inorder(struct binarytreenode *root)
 {
     if (root == NULL)
     {
         return;
     }
-    inorder(root->left);
-    printf("%d ", root->key);
-    inorder(root->right);
+    else
+    {
+        inorder(root->left);
+        printf("%d ", root->key);
+        inorder(root->right);
+    }
 }
 
-void postorder(struct binarytreeNode *root)
+void postorder(struct binarytreenode *root)
 {
     if (root == NULL)
     {
         return;
     }
-    postorder(root->left);
-    postorder(root->right);
-    printf("%d ", root->key);
+    else
+    {
+        postorder(root->left);
+        postorder(root->right);
+        printf("%d ", root->key);
+    }
 }
-
 int main()
 {
-    struct binarytreeNode *root = NULL;
+    struct binarytreenode *root = NULL;
     root = insert(root, 40);
     insert(root, 60);
     insert(root, 70);
-    insert(root, 80);
-
-    printf("\nPreorder Traversal: ");
+    insert(root, 34);
+    insert(root, 35);
+    printf("Preorder:");
     preorder(root);
-
-    printf("\nInorder Traversal: ");
+    printf("\n");
+    printf("inorder:");
     inorder(root);
-
-    printf("\nPostorder Traversal: ");
+    printf("\n");
+    printf("postorder:");
     postorder(root);
-
-    return 0;
 }
