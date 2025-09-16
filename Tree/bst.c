@@ -57,6 +57,7 @@ struct binarytreenode *searching(struct binarytreenode *root, int target)
     }
     return root;
 }
+
 void preorder(struct binarytreenode *root)
 {
     if (root == NULL)
@@ -99,6 +100,19 @@ void postorder(struct binarytreenode *root)
     }
 }
 
+struct binarytreenode *findmin(struct binarytreenode *root)
+{
+    if (root == NULL)
+    {
+        return NULL;
+    }
+    else if (root->left != NULL)
+    {
+        return findmin(root->left);
+    }
+    return root;
+}
+
 int main()
 {
     struct binarytreenode *root = NULL;
@@ -118,4 +132,9 @@ int main()
 
     int target = 70;
     searching(root, target);
+
+    if (findmin(root) != NULL)
+    {
+        printf("\nMinimum Node is %d\n", findmin(root)->key);
+    }
 }
