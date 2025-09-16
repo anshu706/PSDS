@@ -35,6 +35,28 @@ struct binarytreenode *insert(struct binarytreenode *root, int value)
     return root;
 }
 
+struct binarytreenode *searching(struct binarytreenode *root, int target)
+{
+    if (root == NULL)
+    {
+        printf("\ntarget not found");
+        return root;
+    }
+    else if (root->key == target)
+    {
+        printf("\ntarget found");
+        return root;
+    }
+    else if (root->key < target)
+    {
+        searching(root->right, target);
+    }
+    else if (root->key > target)
+    {
+        searching(root->left, target);
+    }
+    return root;
+}
 void preorder(struct binarytreenode *root)
 {
     if (root == NULL)
@@ -93,4 +115,7 @@ int main()
     printf("\n");
     printf("postorder:");
     postorder(root);
+
+    int target = 70;
+    searching(root, target);
 }
