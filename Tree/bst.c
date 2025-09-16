@@ -113,6 +113,51 @@ struct binarytreenode *findmin(struct binarytreenode *root)
     return root;
 }
 
+struct binarytreenode *delete(struct binarytreenode *root, int value)
+{
+    if (root == NULL)
+    {
+        return NULL;
+    }
+    else if (value > root->key)
+    {
+        root->right = delete(root->right, value);
+    }
+    else if (value < root->key)
+    {
+        root->left = delete(root->left, value);
+    }
+    else
+    {
+        if (root->left == NULL && root->right == NULL)
+        {
+            free(root);
+            return NULL;
+        }
+        else if (root->left == NULL || root->right == NULL)
+        {
+            struct binarytreenode *temp;
+            if (root->left = NULL)
+            {
+                temp = root->right;
+            }
+            else
+            {
+                temp = root->left;
+            }
+            free(root);
+            return temp;
+        }
+        else
+        {
+            struct binarytreenode *temp = findmin(root->right);
+            root->key = temp->key;
+            root->right = delete(root->right, temp->key);
+        }
+    }
+    return root;
+}
+
 int main()
 {
     struct binarytreenode *root = NULL;
@@ -140,4 +185,6 @@ int main()
     {
         printf("\nMinimum Node is %d\n", findmin(root)->key);
     }
+    int value = 35;
+    delete(root, value);
 }
