@@ -187,4 +187,6 @@ int main()
     }
     int value = 35;
     delete(root, value);
+    preorder(root);
+    printf("\n");
 }
