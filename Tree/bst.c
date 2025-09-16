@@ -121,12 +121,15 @@ int main()
     insert(root, 70);
     insert(root, 34);
     insert(root, 35);
+
     printf("Preorder:");
     preorder(root);
     printf("\n");
+
     printf("inorder:");
     inorder(root);
     printf("\n");
+
     printf("postorder:");
     postorder(root);
 
