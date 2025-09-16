@@ -16,6 +16,7 @@ struct binarytreenode *create(int value)
     temp->right = NULL;
     return temp;
 }
+
 struct binarytreenode *insert(struct binarytreenode *root, int value)
 {
     if (root == NULL)
@@ -75,6 +76,7 @@ void postorder(struct binarytreenode *root)
         printf("%d ", root->key);
     }
 }
+
 int main()
 {
     struct binarytreenode *root = NULL;
