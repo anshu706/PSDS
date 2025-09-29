@@ -71,6 +71,13 @@ int main()
     head2->prev = head1;
     head2->next = NULL;
 
+    struct Node *temp = head;
+    do
+    {
+        printf("Node Data is %d\n", temp->data);
+        temp = temp->next;
+    } while (temp != head);
+
     // traverseforward(head);
     // traversebackward(head2);
     int key = 20;
